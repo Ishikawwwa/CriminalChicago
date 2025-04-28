@@ -1,0 +1,109 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team16_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q2_results;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE q2_results(
+. . . . . . . . . . . . . . . . . . . . . . .> year INT,
+. . . . . . . . . . . . . . . . . . . . . . .> month INT,
+. . . . . . . . . . . . . . . . . . . . . . .> total_crimes INT)
+. . . . . . . . . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED
+. . . . . . . . . . . . . . . . . . . . . . .> FIELDS TERMINATED BY ','
+. . . . . . . . . . . . . . . . . . . . . . .> location 'project/hive/warehouse/q2'; 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- -- Insert the command into the table
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique.column.names = false;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q2_results
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT 
+. . . . . . . . . . . . . . . . . . . . . . .>     year,
+. . . . . . . . . . . . . . . . . . . . . . .>     month,
+. . . . . . . . . . . . . . . . . . . . . . .>     COUNT(*) AS total_crimes
+. . . . . . . . . . . . . . . . . . . . . . .> FROM crimes_optimized 
+. . . . . . . . . . . . . . . . . . . . . . .> GROUP BY year, month
+. . . . . . . . . . . . . . . . . . . . . . .> ORDER BY year, month;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * FROM q1_results;
++--------------------------------------+---------------+
+|              block_name              | crimes_count  |
++--------------------------------------+---------------+
+| 100XX W OHARE ST                     | 14499         |
+| 001XX N STATE ST                     | 10426         |
+| 076XX S CICERO AVE                   | 8659          |
+| 008XX N MICHIGAN AVE                 | 7300          |
+| 0000X N STATE ST                     | 7024          |
+| 023XX S STATE ST                     | 5115          |
+| 063XX S DR MARTIN LUTHER KING JR DR  | 4538          |
+| 064XX S DR MARTIN LUTHER KING JR DR  | 4461          |
+| 022XX S STATE ST                     | 3882          |
+| 0000X W TERMINAL ST                  | 3802          |
+| 001XX W 87TH ST                      | 3725          |
+| 008XX N STATE ST                     | 3640          |
+| 012XX S WABASH AVE                   | 3340          |
+| 005XX E BROWNING AVE                 | 3225          |
+| 009XX W BELMONT AVE                  | 3190          |
+| 057XX S CICERO AVE                   | 3110          |
+| 011XX W WILSON AVE                   | 3073          |
+| 038XX W ROOSEVELT RD                 | 2935          |
+| 006XX N MICHIGAN AVE                 | 2907          |
+| 0000X W 95TH ST                      | 2901          |
+| 100XX W OHARE ST                     | 14499         |
+| 001XX N STATE ST                     | 10426         |
+| 076XX S CICERO AVE                   | 8659          |
+| 008XX N MICHIGAN AVE                 | 7300          |
+| 0000X N STATE ST                     | 7024          |
+| 023XX S STATE ST                     | 5115          |
+| 063XX S DR MARTIN LUTHER KING JR DR  | 4538          |
+| 064XX S DR MARTIN LUTHER KING JR DR  | 4461          |
+| 022XX S STATE ST                     | 3882          |
+| 0000X W TERMINAL ST                  | 3802          |
+| 001XX W 87TH ST                      | 3725          |
+| 008XX N STATE ST                     | 3640          |
+| 012XX S WABASH AVE                   | 3340          |
+| 005XX E BROWNING AVE                 | 3225          |
+| 009XX W BELMONT AVE                  | 3190          |
+| 057XX S CICERO AVE                   | 3110          |
+| 011XX W WILSON AVE                   | 3073          |
+| 038XX W ROOSEVELT RD                 | 2935          |
+| 006XX N MICHIGAN AVE                 | 2907          |
+| 0000X W 95TH ST                      | 2901          |
+| 100XX W OHARE ST                     | 14499         |
+| 001XX N STATE ST                     | 10426         |
+| 076XX S CICERO AVE                   | 8659          |
+| 008XX N MICHIGAN AVE                 | 7300          |
+| 0000X N STATE ST                     | 7024          |
+| 023XX S STATE ST                     | 5115          |
+| 063XX S DR MARTIN LUTHER KING JR DR  | 4538          |
+| 064XX S DR MARTIN LUTHER KING JR DR  | 4461          |
+| 022XX S STATE ST                     | 3882          |
+| 0000X W TERMINAL ST                  | 3802          |
+| 001XX W 87TH ST                      | 3725          |
+| 008XX N STATE ST                     | 3640          |
+| 012XX S WABASH AVE                   | 3340          |
+| 005XX E BROWNING AVE                 | 3225          |
+| 009XX W BELMONT AVE                  | 3190          |
+| 057XX S CICERO AVE                   | 3110          |
+| 011XX W WILSON AVE                   | 3073          |
+| 038XX W ROOSEVELT RD                 | 2935          |
+| 006XX N MICHIGAN AVE                 | 2907          |
+| 0000X W 95TH ST                      | 2901          |
+| 100XX W OHARE ST                     | 14499         |
+| 001XX N STATE ST                     | 10426         |
+| 076XX S CICERO AVE                   | 8659          |
+| 008XX N MICHIGAN AVE                 | 7300          |
+| 0000X N STATE ST                     | 7024          |
+| 023XX S STATE ST                     | 5115          |
+| 063XX S DR MARTIN LUTHER KING JR DR  | 4538          |
+| 064XX S DR MARTIN LUTHER KING JR DR  | 4461          |
+| 022XX S STATE ST                     | 3882          |
+| 0000X W TERMINAL ST                  | 3802          |
+| 001XX W 87TH ST                      | 3725          |
+| 008XX N STATE ST                     | 3640          |
+| 012XX S WABASH AVE                   | 3340          |
+| 005XX E BROWNING AVE                 | 3225          |
+| 009XX W BELMONT AVE                  | 3190          |
+| 057XX S CICERO AVE                   | 3110          |
+| 011XX W WILSON AVE                   | 3073          |
+| 038XX W ROOSEVELT RD                 | 2935          |
+| 006XX N MICHIGAN AVE                 | 2907          |
+| 0000X W 95TH ST                      | 2901          |
++--------------------------------------+---------------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
