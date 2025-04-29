@@ -1,0 +1,54 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team16_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q5_results;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE q5_results(
+. . . . . . . . . . . . . . . . . . . . . . .> fbi_code STRING,
+. . . . . . . . . . . . . . . . . . . . . . .> crime_count INT)
+. . . . . . . . . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED
+. . . . . . . . . . . . . . . . . . . . . . .> FIELDS TERMINATED BY ','
+. . . . . . . . . . . . . . . . . . . . . . .> LOCATION 'project/hive/warehouse/q5';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Insert the command into the table
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique.column.names = false;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q5_results
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT 
+. . . . . . . . . . . . . . . . . . . . . . .>     fbi_code,
+. . . . . . . . . . . . . . . . . . . . . . .>     COUNT(*) AS crime_count
+. . . . . . . . . . . . . . . . . . . . . . .> FROM crimes_optimized
+. . . . . . . . . . . . . . . . . . . . . . .> GROUP BY fbi_code;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * FROM q5_results
+. . . . . . . . . . . . . . . . . . . . . . .> ORDER BY crime_count DESC;
++-----------+--------------+
+| fbi_code  | crime_count  |
++-----------+--------------+
+| 06        | 1284608      |
+| 08B       | 963362       |
+| 14        | 710082       |
+| 26        | 633337       |
+| 18        | 631977       |
+| 05        | 361624       |
+| 07        | 291030       |
+| 08A       | 284419       |
+| 03        | 233527       |
+| 11        | 186038       |
+| 04B       | 162386       |
+| 04A       | 95312        |
+| 16        | 65584        |
+| 15        | 60733        |
+| 24        | 44463        |
+| 10        | 33289        |
+| 17        | 27942        |
+| 02        | 27238        |
+| 20        | 23935        |
+| 19        | 14163        |
+| 22        | 13422        |
+| 09        | 10166        |
+| 01A       | 8231         |
+| 13        | 2608         |
+| 12        | 1310         |
+| 01B       | 26           |
++-----------+--------------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

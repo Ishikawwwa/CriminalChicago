@@ -1,0 +1,63 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team16_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q3_results;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE q3_results(
+. . . . . . . . . . . . . . . . . . . . . . .> primary_type STRING,
+. . . . . . . . . . . . . . . . . . . . . . .> crime_count INT)
+. . . . . . . . . . . . . . . . . . . . . . .> ROW FORMAT DELIMITED
+. . . . . . . . . . . . . . . . . . . . . . .> FIELDS TERMINATED BY ','
+. . . . . . . . . . . . . . . . . . . . . . .> LOCATION 'project/hive/warehouse/q3';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Insert the command into the table
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique.column.names = false;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q3_results
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT 
+. . . . . . . . . . . . . . . . . . . . . . .>     primary_type,
+. . . . . . . . . . . . . . . . . . . . . . .>     COUNT(*) AS crime_count
+. . . . . . . . . . . . . . . . . . . . . . .> FROM crimes_optimized
+. . . . . . . . . . . . . . . . . . . . . . .> GROUP BY primary_type;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * FROM q3_results
+. . . . . . . . . . . . . . . . . . . . . . .> ORDER BY crime_count DESC;
++------------------------------------+--------------+
+|            primary_type            | crime_count  |
++------------------------------------+--------------+
+| THEFT                              | 1284608      |
+| BATTERY                            | 1125725      |
+| CRIMINAL DAMAGE                    | 710082       |
+| NARCOTICS                          | 674556       |
+| OTHER OFFENSE                      | 381714       |
+| ASSAULT                            | 376888       |
+| BURGLARY                           | 361624       |
+| MOTOR VEHICLE THEFT                | 291030       |
+| ROBBERY                            | 233527       |
+| DECEPTIVE PRACTICE                 | 223245       |
+| CRIMINAL TRESPASS                  | 178002       |
+| PROSTITUTION                       | 65533        |
+| WEAPONS VIOLATION                  | 60640        |
+| PUBLIC PEACE VIOLATION             | 44732        |
+| OFFENSE INVOLVING CHILDREN         | 40233        |
+| CRIM SEXUAL ASSAULT                | 23607        |
+| SEX OFFENSE                        | 22631        |
+| GAMBLING                           | 13884        |
+| LIQUOR LAW VIOLATION               | 13422        |
+| INTERFERENCE WITH PUBLIC OFFICER   | 12869        |
+| ARSON                              | 10279        |
+| HOMICIDE                           | 8257         |
+| KIDNAPPING                         | 6246         |
+| INTIMIDATION                       | 3575         |
+| STALKING                           | 2965         |
+| OBSCENITY                          | 411          |
+| PUBLIC INDECENCY                   | 137          |
+| OTHER NARCOTIC VIOLATION           | 111          |
+| NON-CRIMINAL                       | 96           |
+| CONCEALED CARRY LICENSE VIOLATION  | 90           |
+| NON - CRIMINAL                     | 38           |
+| HUMAN TRAFFICKING                  | 28           |
+| RITUALISM                          | 22           |
+| NON-CRIMINAL (SUBJECT SPECIFIED)   | 4            |
+| DOMESTIC VIOLENCE                  | 1            |
++------------------------------------+--------------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
