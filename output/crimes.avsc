@@ -1,0 +1,91 @@
+{
+  "type" : "record",
+  "name" : "crimes",
+  "doc" : "Sqoop import of crimes",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "id",
+    "sqlType" : "4"
+  }, {
+    "name" : "date",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "date",
+    "sqlType" : "93"
+  }, {
+    "name" : "block",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "block",
+    "sqlType" : "12"
+  }, {
+    "name" : "primary_type",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "primary_type",
+    "sqlType" : "12"
+  }, {
+    "name" : "location_description",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "location_description",
+    "sqlType" : "12"
+  }, {
+    "name" : "arrest",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "arrest",
+    "sqlType" : "-7"
+  }, {
+    "name" : "domestic",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "domestic",
+    "sqlType" : "-7"
+  }, {
+    "name" : "beat",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "beat",
+    "sqlType" : "4"
+  }, {
+    "name" : "district",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "district",
+    "sqlType" : "4"
+  }, {
+    "name" : "ward",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "ward",
+    "sqlType" : "8"
+  }, {
+    "name" : "community_area",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "community_area",
+    "sqlType" : "8"
+  }, {
+    "name" : "fbi_code",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "fbi_code",
+    "sqlType" : "12"
+  }, {
+    "name" : "x_coordinate",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "x_coordinate",
+    "sqlType" : "8"
+  }, {
+    "name" : "y_coordinate",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "y_coordinate",
+    "sqlType" : "8"
+  } ],
+  "tableName" : "crimes"
+}

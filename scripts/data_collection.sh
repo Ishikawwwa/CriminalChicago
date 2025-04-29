@@ -16,6 +16,7 @@ cleanup() {
 trap cleanup EXIT
 
 if ! command -v kaggle &> /dev/null; then
+    command -v kaggle
     echo "Please install kaggle API via pip"
     exit 1
 fi
@@ -26,7 +27,7 @@ if [ ! -f ~/.kaggle/kaggle.json ]; then
 fi
 
 DATASET="currie32/crimes-in-chicago"
-DOWNLOAD_DIR=../data
+DOWNLOAD_DIR=~/project/CriminalChicago/data
 
 mkdir -p "$DOWNLOAD_DIR"
 
