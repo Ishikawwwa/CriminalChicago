@@ -1,0 +1,15 @@
+column_name,data_type
+arrest,boolean
+beat,integer
+block,character varying
+community_area,double precision
+date,timestamp without time zone
+district,integer
+domestic,boolean
+fbi_code,character varying
+id,integer
+location_description,character varying
+primary_type,character varying
+ward,double precision
+x_coordinate,double precision
+y_coordinate,double precision
