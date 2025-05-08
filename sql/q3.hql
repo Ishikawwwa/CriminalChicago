@@ -16,7 +16,7 @@ INSERT INTO q3_results
 SELECT 
     primary_type,
     COUNT(*) AS crime_count
-FROM crimes_optimized
+FROM crimes
 GROUP BY primary_type;
 
 SELECT * FROM q3_results

@@ -18,7 +18,7 @@
 . . . . . . . . . . . . . . . . . . . . . . .>     primary_type,
 . . . . . . . . . . . . . . . . . . . . . . .>     AVG(beat) AS avg_beat,
 . . . . . . . . . . . . . . . . . . . . . . .>     AVG(district) AS avg_district
-. . . . . . . . . . . . . . . . . . . . . . .> FROM crimes_optimized
+. . . . . . . . . . . . . . . . . . . . . . .> FROM crimes
 . . . . . . . . . . . . . . . . . . . . . . .> GROUP BY primary_type;
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
@@ -27,38 +27,73 @@
 |            primary_type            |  avg_beat  | avg_district  |
 +------------------------------------+------------+---------------+
 | ARSON                              | 1210.6661  | 11.612511     |
-| HOMICIDE                           | 1051.4498  | 10.103427     |
-| NON-CRIMINAL (SUBJECT SPECIFIED)   | 1020.0     | 10.0          |
-| RITUALISM                          | 1132.3182  | 11.090909     |
-| DOMESTIC VIOLENCE                  | 423.0      | 4.0           |
-| OBSCENITY                          | 1303.1436  | 12.545012     |
-| OFFENSE INVOLVING CHILDREN         | 1153.8236  | 10.979967     |
-| PUBLIC PEACE VIOLATION             | 1181.5619  | 11.354019     |
-| PROSTITUTION                       | 1265.4755  | 12.288561     |
-| ROBBERY                            | 1148.9104  | 10.821315     |
-| SEX OFFENSE                        | 1266.8318  | 12.005834     |
-| CONCEALED CARRY LICENSE VIOLATION  | 1155.9222  | 11.311111     |
-| CRIM SEXUAL ASSAULT                | 1151.6525  | 10.93938      |
-| LIQUOR LAW VIOLATION               | 1402.5671  | 13.509388     |
-| NON - CRIMINAL                     | 961.1316   | 9.368421      |
-| OTHER NARCOTIC VIOLATION           | 1524.1532  | 14.864865     |
-| PUBLIC INDECENCY                   | 1177.9417  | 11.291971     |
-| ASSAULT                            | 1127.7755  | 10.66365      |
 | CRIMINAL TRESPASS                  | 1146.8423  | 10.508028     |
 | HUMAN TRAFFICKING                  | 817.7143   | 7.964286      |
 | INTIMIDATION                       | 1135.1107  | 10.79021      |
+| ARSON                              | 1210.6661  | 11.612511     |
+| CRIMINAL TRESPASS                  | 1146.8423  | 10.508028     |
+| HUMAN TRAFFICKING                  | 817.7143   | 7.964286      |
+| INTIMIDATION                       | 1135.1107  | 10.79021      |
+| HOMICIDE                           | 1051.4498  | 10.103427     |
 | NARCOTICS                          | 1158.7633  | 11.001104     |
+| NON-CRIMINAL (SUBJECT SPECIFIED)   | 1020.0     | 10.0          |
+| HOMICIDE                           | 1051.4498  | 10.103427     |
+| NARCOTICS                          | 1158.7633  | 11.001104     |
+| NON-CRIMINAL (SUBJECT SPECIFIED)   | 1020.0     | 10.0          |
 | CRIMINAL DAMAGE                    | 1213.6387  | 11.55354      |
 | GAMBLING                           | 1090.0505  | 10.341761     |
 | INTERFERENCE WITH PUBLIC OFFICER   | 1184.8065  | 11.412852     |
+| RITUALISM                          | 1132.3182  | 11.090909     |
+| CRIMINAL DAMAGE                    | 1213.6387  | 11.55354      |
+| GAMBLING                           | 1090.0505  | 10.341761     |
+| INTERFERENCE WITH PUBLIC OFFICER   | 1184.8065  | 11.412852     |
+| RITUALISM                          | 1132.3182  | 11.090909     |
+| DOMESTIC VIOLENCE                  | 423.0      | 4.0           |
 | KIDNAPPING                         | 1223.5187  | 11.693244     |
+| OBSCENITY                          | 1303.1436  | 12.545012     |
+| OFFENSE INVOLVING CHILDREN         | 1153.8236  | 10.979967     |
+| PUBLIC PEACE VIOLATION             | 1181.5619  | 11.354019     |
+| DOMESTIC VIOLENCE                  | 423.0      | 4.0           |
+| KIDNAPPING                         | 1223.5187  | 11.693244     |
+| OBSCENITY                          | 1303.1436  | 12.545012     |
+| OFFENSE INVOLVING CHILDREN         | 1153.8236  | 10.979967     |
+| PUBLIC PEACE VIOLATION             | 1181.5619  | 11.354019     |
 | DECEPTIVE PRACTICE                 | 1268.2252  | 11.986011     |
 | NON-CRIMINAL                       | 1362.4375  | 13.375        |
+| PROSTITUTION                       | 1265.4755  | 12.288561     |
+| DECEPTIVE PRACTICE                 | 1268.2252  | 11.986011     |
+| NON-CRIMINAL                       | 1362.4375  | 13.375        |
+| PROSTITUTION                       | 1265.4755  | 12.288561     |
+| ROBBERY                            | 1148.9104  | 10.821315     |
+| ROBBERY                            | 1148.9104  | 10.821315     |
+| SEX OFFENSE                        | 1266.8318  | 12.005834     |
+| SEX OFFENSE                        | 1266.8318  | 12.005834     |
+| CONCEALED CARRY LICENSE VIOLATION  | 1155.9222  | 11.311111     |
+| CRIM SEXUAL ASSAULT                | 1151.6525  | 10.93938      |
 | OTHER OFFENSE                      | 1217.7257  | 11.513175     |
 | STALKING                           | 1153.2897  | 10.890725     |
 | THEFT                              | 1264.8546  | 11.893703     |
 | WEAPONS VIOLATION                  | 1077.6028  | 10.313269     |
+| CONCEALED CARRY LICENSE VIOLATION  | 1155.9222  | 11.311111     |
+| CRIM SEXUAL ASSAULT                | 1151.6525  | 10.93938      |
+| OTHER OFFENSE                      | 1217.7257  | 11.513175     |
+| STALKING                           | 1153.2897  | 10.890725     |
+| THEFT                              | 1264.8546  | 11.893703     |
+| WEAPONS VIOLATION                  | 1077.6028  | 10.313269     |
+| LIQUOR LAW VIOLATION               | 1402.5671  | 13.509388     |
+| NON - CRIMINAL                     | 961.1316   | 9.368421      |
+| OTHER NARCOTIC VIOLATION           | 1524.1532  | 14.864865     |
+| PUBLIC INDECENCY                   | 1177.9417  | 11.291971     |
+| LIQUOR LAW VIOLATION               | 1402.5671  | 13.509388     |
+| NON - CRIMINAL                     | 961.1316   | 9.368421      |
+| OTHER NARCOTIC VIOLATION           | 1524.1532  | 14.864865     |
+| PUBLIC INDECENCY                   | 1177.9417  | 11.291971     |
 | BATTERY                            | 1137.1421  | 10.775566     |
+| BATTERY                            | 1137.1421  | 10.775566     |
+| ASSAULT                            | 1127.7755  | 10.66365      |
+| BURGLARY                           | 1213.5498  | 11.541448     |
+| MOTOR VEHICLE THEFT                | 1224.468   | 11.5848055    |
+| ASSAULT                            | 1127.7755  | 10.66365      |
 | BURGLARY                           | 1213.5498  | 11.541448     |
 | MOTOR VEHICLE THEFT                | 1224.468   | 11.5848055    |
 +------------------------------------+------------+---------------+

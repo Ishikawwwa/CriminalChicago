@@ -16,7 +16,7 @@ INSERT INTO q5_results
 SELECT 
     fbi_code,
     COUNT(*) AS crime_count
-FROM crimes_optimized
+FROM crimes
 GROUP BY fbi_code;
 
 SELECT * FROM q5_results

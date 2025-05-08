@@ -1,4 +1,3 @@
-0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Create a managed or external Hive Table qx_results to store the results of the query.
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team16_projectdb;
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS q1_results;
@@ -9,13 +8,13 @@
 . . . . . . . . . . . . . . . . . . . . . . .> FIELDS TERMINATED BY ','
 . . . . . . . . . . . . . . . . . . . . . . .> location 'project/hive/warehouse/q1'; 
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
-0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Insert the command into the table
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- -- Insert the command into the table
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.resultset.use.unique.column.names = false;
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO q1_results
 . . . . . . . . . . . . . . . . . . . . . . .> SELECT 
 . . . . . . . . . . . . . . . . . . . . . . .> block, COUNT(*) AS `sm`
-. . . . . . . . . . . . . . . . . . . . . . .> FROM crimes_optimized
+. . . . . . . . . . . . . . . . . . . . . . .> FROM crimes
 . . . . . . . . . . . . . . . . . . . . . . .> GROUP BY block
 . . . . . . . . . . . . . . . . . . . . . . .> ORDER BY `sm` DESC
 . . . . . . . . . . . . . . . . . . . . . . .> LIMIT 20;

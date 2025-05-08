@@ -18,7 +18,7 @@ SELECT
     primary_type,
     AVG(beat) AS avg_beat,
     AVG(district) AS avg_district
-FROM crimes_optimized
+FROM crimes
 GROUP BY primary_type;
 
 
