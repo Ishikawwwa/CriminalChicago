@@ -4,29 +4,28 @@ import os
 import glob
 import csv
 import io
+import tempfile
 
-def clean_csv_file(input_path):
-    cleaned_rows = []
-    with open(input_path, 'r') as f:
-        reader = csv.reader(f)
+def clean_csv_file(input_path, output_path):
+    with open(input_path, 'r', newline='') as infile, \
+         open(output_path, 'w', newline='') as outfile:
+        reader = csv.reader(infile)
+        writer = csv.writer(outfile)
+        
         header = next(reader)
+        writer.writerow(header)
         
         for row in reader:
-            if len(row) != len(header) or row[1] == 'ID':
+            if len(row) != len(header) or (row and row[0] == 'ID'):
                 continue
                 
-            for i in [1, 11, 12]:  # Positions of id, beat, district
-                if i < len(row) and row[i] and row[i].endswith('.0'):
-                    row[i] = row[i][:-2]
+            indices_to_clean = [1, 11, 12]
+            
+            for col_idx_actual in indices_to_clean:
+                if col_idx_actual < len(row) and row[col_idx_actual] and isinstance(row[col_idx_actual], str) and row[col_idx_actual].endswith('.0'):
+                    row[col_idx_actual] = row[col_idx_actual][:-2]
                     
-            cleaned_rows.append(row)
-    
-    output = io.StringIO()
-    writer = csv.writer(output)
-    writer.writerow(header)
-    writer.writerows(cleaned_rows)
-    output.seek(0)
-    return output
+            writer.writerow(row)
 
 with open(os.path.join("secrets", ".psql.pass"), "r") as f:
     password = f.read().rstrip()
@@ -55,26 +54,36 @@ with psql.connect(conn_string) as conn:
         
         for crime_file in crime_files:
             print(f"Processing {os.path.basename(crime_file)}...")
-            cleaned_data = clean_csv_file(crime_file)
+            
+            with tempfile.NamedTemporaryFile(mode='w+', delete=False, newline='') as temp_cleaned_file:
+                temp_cleaned_path = temp_cleaned_file.name
+            
+            clean_csv_file(crime_file, temp_cleaned_path)
             
             cur.execute("SELECT COUNT(*) FROM crimes")
             before_count = cur.fetchone()[0]
             
-            cur.copy_expert(import_command, cleaned_data)
+            with open(temp_cleaned_path, 'r') as f_cleaned:
+                cur.copy_expert(import_command, f_cleaned)
             conn.commit()
             
             cur.execute("SELECT COUNT(*) FROM crimes")
             after_count = cur.fetchone()[0]
             
-            cleaned_data.seek(0)
-            reader = csv.reader(cleaned_data)
-            next(reader)  # Skip header
-            input_count = sum(1 for _ in reader)
+            input_count = 0
+            with open(temp_cleaned_path, 'r', newline='') as f_cleaned_for_count:
+                reader = csv.reader(f_cleaned_for_count)
+                next(reader)
+                input_count = sum(1 for _ in reader)
+                
             duplicates = input_count - (after_count - before_count)
             total_duplicates += duplicates
             
             print(f"  Added {after_count - before_count} records, skipped {duplicates} duplicates")
+            
+            os.remove(temp_cleaned_path)
     
+    print(f"\nTotal duplicates skipped across all files: {total_duplicates}")
 
     print("\nRunning test...")
     with open(os.path.join("sql", "test_database.sql"), 'r') as f:
@@ -83,3 +92,4 @@ with psql.connect(conn_string) as conn:
     
     conn.commit()
     print("All operations completed successfully")
+

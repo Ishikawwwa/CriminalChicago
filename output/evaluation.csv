@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 LinearRegressionModel: alpha=200,2609.8501,0.0969
 LightGBMModel: lr=0.05; depth=7; est=100; leaves=63,26032.0438,0.0035
+=======
+LinearRegressionModel: alpha=200,2609.8501,0.0969
+LightGBMModel: lr=0.05; depth=7; est=100; leaves=63,26032.0438,0.0035
+>>>>>>> 783940117157b5a0e10e2b5c032e364c21bb5de4

@@ -5,7 +5,7 @@ USE team16_projectdb;
 CREATE EXTERNAL TABLE crimes STORED as AVRO LOCATION 'project/warehouse/crimes'
 TBLPROPERTIES ('avro.schema.url'='project/warehouse/avsc/crimes.avsc');
 
-SELECT * FROM crimes;
+-- SELECT * FROM crimes; -- Commented out to prevent GC overhead on client
 
 CREATE EXTERNAL TABLE crimes_optimized (
   id BIGINT,
@@ -22,7 +22,7 @@ CREATE EXTERNAL TABLE crimes_optimized (
   x_coordinate DOUBLE,
   y_coordinate DOUBLE
 )
-PARTITIONED BY (year INT, month INT)
+PARTITIONED BY (year INT, month INT, day INT)
 STORED AS AVRO
 LOCATION 'project/hive/warehouse/crimes_optimized'
 TBLPROPERTIES (
@@ -49,8 +49,10 @@ TBLPROPERTIES (
 
 SET hive.exec.dynamic.partition=true;
 SET hive.exec.dynamic.partition.mode=nonstrict;
+SET hive.exec.max.dynamic.partitions.pernode=1000;
+SET hive.exec.max.dynamic.partitions=10000;
 
-INSERT OVERWRITE TABLE crimes_optimized PARTITION (year, month)
+INSERT OVERWRITE TABLE crimes_optimized PARTITION (year, month, day)
 SELECT 
   id,
   block,
@@ -66,6 +68,8 @@ SELECT
   x_coordinate,
   y_coordinate,
   YEAR(FROM_UNIXTIME(CAST(`date`/1000 AS BIGINT))) AS year,
-  MONTH(FROM_UNIXTIME(CAST(`date`/1000 AS BIGINT))) AS month
+  MONTH(FROM_UNIXTIME(CAST(`date`/1000 AS BIGINT))) AS month,
+  DAY(FROM_UNIXTIME(CAST(`date`/1000 AS BIGINT))) AS day
 FROM crimes;
+
 
