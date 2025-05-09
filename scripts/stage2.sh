@@ -8,7 +8,7 @@ hdfs dfs -put ~/project/CriminalChicago/output/crimes.avsc project/warehouse/avs
 
 password=$(head -n 1 ~/project/CriminalChicago/secrets/.hive.pass)
 
-beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team16 -p $password -f ~/project/CriminalChicago/sql/odb.hql > ~/project/CriminalChicago/output/hive_results.txt
+beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team16 -p $password -f ~/project/CriminalChicago/sql/db.hql > ~/project/CriminalChicago/output/hive_results.txt
 
 
 beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team16 -p $password -f ~/project/CriminalChicago/sql/q1.hql --hiveconf hive.resultset.use.unique.column.names=false > ~/project/CriminalChicago/output/q1.csv
