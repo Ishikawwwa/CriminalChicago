@@ -26,75 +26,40 @@
 |            primary_type            | domestic_crimes  | non_domestic_crimes  |
 +------------------------------------+------------------+----------------------+
 | BATTERY                            | 473499           | 652226               |
-| BATTERY                            | 473499           | 652226               |
-| OTHER OFFENSE                      | 110725           | 270989               |
 | OTHER OFFENSE                      | 110725           | 270989               |
 | ASSAULT                            | 81371            | 295517               |
-| ASSAULT                            | 81371            | 295517               |
-| CRIMINAL DAMAGE                    | 52755            | 657327               |
 | CRIMINAL DAMAGE                    | 52755            | 657327               |
 | THEFT                              | 29249            | 1255359              |
-| THEFT                              | 29249            | 1255359              |
-| OFFENSE INVOLVING CHILDREN         | 20972            | 19261                |
 | OFFENSE INVOLVING CHILDREN         | 20972            | 19261                |
 | CRIMINAL TRESPASS                  | 5572             | 172430               |
-| CRIMINAL TRESPASS                  | 5572             | 172430               |
-| ROBBERY                            | 3725             | 229802               |
 | ROBBERY                            | 3725             | 229802               |
 | CRIM SEXUAL ASSAULT                | 3083             | 20524                |
-| CRIM SEXUAL ASSAULT                | 3083             | 20524                |
-| DECEPTIVE PRACTICE                 | 2634             | 220611               |
 | DECEPTIVE PRACTICE                 | 2634             | 220611               |
 | BURGLARY                           | 2330             | 359294               |
-| BURGLARY                           | 2330             | 359294               |
-| PUBLIC PEACE VIOLATION             | 2082             | 42650                |
 | PUBLIC PEACE VIOLATION             | 2082             | 42650                |
 | SEX OFFENSE                        | 1738             | 20893                |
-| SEX OFFENSE                        | 1738             | 20893                |
-| KIDNAPPING                         | 1720             | 4526                 |
 | KIDNAPPING                         | 1720             | 4526                 |
 | STALKING                           | 1239             | 1726                 |
-| STALKING                           | 1239             | 1726                 |
-| MOTOR VEHICLE THEFT                | 1070             | 289960               |
 | MOTOR VEHICLE THEFT                | 1070             | 289960               |
 | HOMICIDE                           | 562              | 7695                 |
-| HOMICIDE                           | 562              | 7695                 |
-| ARSON                              | 539              | 9740                 |
 | ARSON                              | 539              | 9740                 |
 | INTIMIDATION                       | 465              | 3110                 |
-| INTIMIDATION                       | 465              | 3110                 |
-| NARCOTICS                          | 236              | 674320               |
 | NARCOTICS                          | 236              | 674320               |
 | WEAPONS VIOLATION                  | 212              | 60428                |
-| WEAPONS VIOLATION                  | 212              | 60428                |
-| INTERFERENCE WITH PUBLIC OFFICER   | 62               | 12807                |
 | INTERFERENCE WITH PUBLIC OFFICER   | 62               | 12807                |
 | OBSCENITY                          | 48               | 363                  |
-| OBSCENITY                          | 48               | 363                  |
-| LIQUOR LAW VIOLATION               | 7                | 13415                |
 | LIQUOR LAW VIOLATION               | 7                | 13415                |
 | PROSTITUTION                       | 6                | 65527                |
-| PROSTITUTION                       | 6                | 65527                |
-| RITUALISM                          | 5                | 17                   |
 | RITUALISM                          | 5                | 17                   |
 | NON-CRIMINAL (SUBJECT SPECIFIED)   | 3                | 1                    |
 | GAMBLING                           | 3                | 13881                |
-| NON-CRIMINAL (SUBJECT SPECIFIED)   | 3                | 1                    |
-| GAMBLING                           | 3                | 13881                |
-| DOMESTIC VIOLENCE                  | 1                | 0                    |
-| DOMESTIC VIOLENCE                  | 1                | 0                    |
-| PUBLIC INDECENCY                   | 1                | 136                  |
-| NON-CRIMINAL                       | 1                | 95                   |
 | HUMAN TRAFFICKING                  | 1                | 27                   |
-| HUMAN TRAFFICKING                  | 1                | 27                   |
-| NON-CRIMINAL                       | 1                | 95                   |
 | PUBLIC INDECENCY                   | 1                | 136                  |
-| CONCEALED CARRY LICENSE VIOLATION  | 0                | 90                   |
+| DOMESTIC VIOLENCE                  | 1                | 0                    |
+| NON-CRIMINAL                       | 1                | 95                   |
 | CONCEALED CARRY LICENSE VIOLATION  | 0                | 90                   |
 | NON - CRIMINAL                     | 0                | 38                   |
 | OTHER NARCOTIC VIOLATION           | 0                | 111                  |
-| OTHER NARCOTIC VIOLATION           | 0                | 111                  |
-| NON - CRIMINAL                     | 0                | 38                   |
 +------------------------------------+------------------+----------------------+
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

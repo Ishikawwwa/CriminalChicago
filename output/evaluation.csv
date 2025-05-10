@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-LinearRegressionModel: alpha=200,2609.8501,0.0969
-LightGBMModel: lr=0.05; depth=7; est=100; leaves=63,26032.0438,0.0035
-=======
-LinearRegressionModel: alpha=200,2609.8501,0.0969
-LightGBMModel: lr=0.05; depth=7; est=100; leaves=63,26032.0438,0.0035
->>>>>>> 783940117157b5a0e10e2b5c032e364c21bb5de4
+Model,RMSE,R2
+Linear Regression,3.3035840997195017E7,4.8308810493657983E-4
+GBT Regression,3.3250641238530535E7,-0.012556958676893215

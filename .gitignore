@@ -176,3 +176,5 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+scripts/X_train_1.json
+scripts/X_test_1.json

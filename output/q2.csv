@@ -26,8 +26,6 @@
 |   category    |  total   |
 +---------------+----------+
 | Arrested      | 1744145  |
-| Arrested      | 1744145  |
-| Not Arrested  | 4426667  |
 | Not Arrested  | 4426667  |
 +---------------+----------+
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

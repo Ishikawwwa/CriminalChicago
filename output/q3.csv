@@ -25,74 +25,39 @@
 |            primary_type            | crime_count  |
 +------------------------------------+--------------+
 | THEFT                              | 1284608      |
-| THEFT                              | 1284608      |
-| BATTERY                            | 1125725      |
 | BATTERY                            | 1125725      |
 | CRIMINAL DAMAGE                    | 710082       |
-| CRIMINAL DAMAGE                    | 710082       |
-| NARCOTICS                          | 674556       |
 | NARCOTICS                          | 674556       |
 | OTHER OFFENSE                      | 381714       |
-| OTHER OFFENSE                      | 381714       |
-| ASSAULT                            | 376888       |
 | ASSAULT                            | 376888       |
 | BURGLARY                           | 361624       |
-| BURGLARY                           | 361624       |
-| MOTOR VEHICLE THEFT                | 291030       |
 | MOTOR VEHICLE THEFT                | 291030       |
 | ROBBERY                            | 233527       |
-| ROBBERY                            | 233527       |
-| DECEPTIVE PRACTICE                 | 223245       |
 | DECEPTIVE PRACTICE                 | 223245       |
 | CRIMINAL TRESPASS                  | 178002       |
-| CRIMINAL TRESPASS                  | 178002       |
-| PROSTITUTION                       | 65533        |
 | PROSTITUTION                       | 65533        |
 | WEAPONS VIOLATION                  | 60640        |
-| WEAPONS VIOLATION                  | 60640        |
-| PUBLIC PEACE VIOLATION             | 44732        |
 | PUBLIC PEACE VIOLATION             | 44732        |
 | OFFENSE INVOLVING CHILDREN         | 40233        |
-| OFFENSE INVOLVING CHILDREN         | 40233        |
-| CRIM SEXUAL ASSAULT                | 23607        |
 | CRIM SEXUAL ASSAULT                | 23607        |
 | SEX OFFENSE                        | 22631        |
-| SEX OFFENSE                        | 22631        |
-| GAMBLING                           | 13884        |
 | GAMBLING                           | 13884        |
 | LIQUOR LAW VIOLATION               | 13422        |
-| LIQUOR LAW VIOLATION               | 13422        |
-| INTERFERENCE WITH PUBLIC OFFICER   | 12869        |
 | INTERFERENCE WITH PUBLIC OFFICER   | 12869        |
 | ARSON                              | 10279        |
-| ARSON                              | 10279        |
-| HOMICIDE                           | 8257         |
 | HOMICIDE                           | 8257         |
 | KIDNAPPING                         | 6246         |
-| KIDNAPPING                         | 6246         |
-| INTIMIDATION                       | 3575         |
 | INTIMIDATION                       | 3575         |
 | STALKING                           | 2965         |
-| STALKING                           | 2965         |
-| OBSCENITY                          | 411          |
 | OBSCENITY                          | 411          |
 | PUBLIC INDECENCY                   | 137          |
-| PUBLIC INDECENCY                   | 137          |
-| OTHER NARCOTIC VIOLATION           | 111          |
 | OTHER NARCOTIC VIOLATION           | 111          |
 | NON-CRIMINAL                       | 96           |
-| NON-CRIMINAL                       | 96           |
-| CONCEALED CARRY LICENSE VIOLATION  | 90           |
 | CONCEALED CARRY LICENSE VIOLATION  | 90           |
 | NON - CRIMINAL                     | 38           |
-| NON - CRIMINAL                     | 38           |
-| HUMAN TRAFFICKING                  | 28           |
 | HUMAN TRAFFICKING                  | 28           |
 | RITUALISM                          | 22           |
-| RITUALISM                          | 22           |
 | NON-CRIMINAL (SUBJECT SPECIFIED)   | 4            |
-| NON-CRIMINAL (SUBJECT SPECIFIED)   | 4            |
-| DOMESTIC VIOLENCE                  | 1            |
 | DOMESTIC VIOLENCE                  | 1            |
 +------------------------------------+--------------+
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
