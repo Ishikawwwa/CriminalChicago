@@ -178,3 +178,5 @@ cython_debug/
 .pypirc
 scripts/X_train_1.json
 scripts/X_test_1.json
+data/test.json
+data/train.json
